@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IntelliStudy</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body>
+  <div class="panel">
+    <div class="panel__mode" aria-live="polite">
+      <label for="cloud-toggle" class="mode-toggle">
+        <span class="mode-toggle__label">Use Gemini 2.5 (cloud)</span>
+        <span class="mode-toggle__control">
+          <input type="checkbox" id="cloud-toggle" class="mode-toggle__input" aria-describedby="cloud-toggle-description">
+          <span class="mode-toggle__slider" aria-hidden="true"></span>
+        </span>
+      </label>
+      <p id="cloud-toggle-description" class="mode-toggle__status">Using on-device Gemini Nano</p>
+    </div>
+    <header class="panel__header">
+      <div class="panel__identity">
+        <span class="panel__logo" aria-hidden="true">IS</span>
+        <div>
+          <h1 class="panel__title">IntelliStudy</h1>
+          <p class="panel__subtitle">Your private research copilot</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="panel__actions" aria-label="Primary actions">
+      <button id="summarize-btn" class="button button--primary" aria-label="Summarize">
+        <span class="button__label">Summarize</span>
+      </button>
+      <select id="language-select" class="language-select" aria-label="Choose response language">
+        <option value="en" selected>English</option>
+        <option value="es">Español</option>
+      </select>
+    </section>
+
+    <section class="panel__output" id="output" role="region" aria-live="polite">
+      <div class="panel__placeholder">Results will appear here once IntelliStudy gets to work.</div>
+    </section>
+
+    <section class="panel__prompt" aria-label="Ask IntelliStudy">
+      <form id="prompt-form" class="prompt-form">
+        <button
+          type="button"
+          id="prompt-menu-button"
+          class="prompt-menu__trigger"
+          aria-label="More actions"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false">
+            <path d="M9 3.25a.75.75 0 0 1 .75.75v4.25H14a.75.75 0 0 1 0 1.5H9.75V14a.75.75 0 0 1-1.5 0V9.75H4a.75.75 0 0 1 0-1.5h4.25V4a.75.75 0 0 1 .75-.75Z" fill="currentColor" />
+          </svg>
+        </button>
+        <div class="prompt-menu" id="prompt-menu" role="menu">
+          <button type="button" id="prompt-menu-upload" class="prompt-menu__item" role="menuitem">
+            <span class="prompt-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8 2.25a.75.75 0 0 1 .75.75v4.19l1.72-1.72a.75.75 0 0 1 1.06 1.06L8 9.31 4.47 6.53a.75.75 0 0 1 1.06-1.06L7.75 7.2V3a.75.75 0 0 1 .75-.75ZM3.5 9.25a.75.75 0 0 1 .75.75v2h7.5v-2a.75.75 0 0 1 1.5 0v2.75a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V10a.75.75 0 0 1 .75-.75Z" fill="currentColor" />
+              </svg>
+            </span>
+            <span class="prompt-menu__label">Upload document</span>
+          </button>
+          <button type="button" id="prompt-menu-voice" class="prompt-menu__item" role="menuitem">
+            <span class="prompt-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16">
+                <path d="M8 2a2 2 0 0 0-2 2v3a2 2 0 1 0 4 0V4a2 2 0 0 0-2-2Zm3 5a3 3 0 0 1-6 0H4a4 4 0 0 0 3 3.874V12H5.75a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5H9v-1.126A4 4 0 0 0 12 7h-1Z" fill="currentColor" />
+              </svg>
+            </span>
+            <span class="prompt-menu__label">Ask with voice</span>
+          </button>
+          <button type="button" id="prompt-menu-clear-upload" class="prompt-menu__item" role="menuitem" hidden>
+            <span class="prompt-menu__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16">
+                <path d="M4.22 4.22a.75.75 0 0 1 1.06 0L8 6.94l2.72-2.72a.75.75 0 0 1 1.06 1.06L9.06 8l2.72 2.72a.75.75 0 0 1-1.06 1.06L8 9.06l-2.72 2.72a.75.75 0 0 1-1.06-1.06L6.94 8 4.22 5.28a.75.75 0 0 1 0-1.06Z" fill="currentColor" />
+              </svg>
+            </span>
+            <span class="prompt-menu__label">Clear uploaded file</span>
+          </button>
+        </div>
+        <input
+          type="file"
+          id="prompt-file-input"
+          class="prompt-file-input"
+          accept=".txt,.md,.markdown,.json,.csv,.tsv,.html,.htm,.xml,.yaml,.yml,.log,.pdf,application/pdf,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        >
+        <input
+          type="text"
+          id="prompt-input"
+          class="prompt-input"
+          placeholder="Ask a question about this page"
+          aria-label="Ask a question about this page"
+          autocomplete="off"
+        >
+        <button type="submit" class="button button--primary prompt-submit">Ask</button>
+      </form>
+    </section>
+
+    <footer class="panel__footer">
+      <p class="panel__hint">Tip: Try asking "What are the key takeaways?" after summarizing.</p>
+    </footer>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
