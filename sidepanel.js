@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CLOUD_MODEL_CONFIG = {
     model: 'gemini-2.5-flash-lite',
     endpoint: 'https://generativelanguage.googleapis.com/v1beta/models',
-    apiKey: 'AIzaSyDqr6YWuN-neygN1JkD-CRcAzJiQiDHEOE'
+    apiKey: 'YOUR_API_KEY'
   };
 
   function getLanguageSettings(lang = activeLanguage) {
