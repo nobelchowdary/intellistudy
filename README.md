@@ -46,7 +46,7 @@ IntelliStudy/
 1. **Clone or copy** the repository onto your machine.
 
    ```bash
-   git clone https://github.com/<your-account>/IntelliStudy.git
+   git clone https://github.com/nobelchowdary/IntelliStudy.git
    cd IntelliStudy
    ```
 
